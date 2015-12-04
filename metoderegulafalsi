@@ -1,0 +1,32 @@
+#include <iostream>
+#include <conio>
+#include <math>
+
+double f(double x){
+	return pow(x,3.0)-7*x+1;
+}
+
+int main()
+{
+	double a,b,c;
+	double eps = 0.00001;
+
+	a=2.6;
+	b=2.5;
+	int i=0;
+
+	while(eps < (a-b)){
+      c = b-(f(b)*(b-a))/(f(b)-f(a));
+		if(f(c)*f(b) < 0){
+			a=c;
+		}
+		else{
+			b=c;
+      }
+		i++;
+     cout<<"interasi ke"<<i;
+     cout<<" akar persamaan : "<<c<<endl;
+	}
+
+	getch();
+}
